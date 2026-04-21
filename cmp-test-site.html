@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CMP Test Site — Cookie Information</title>
+
+  <!-- ✅ COOKIE INFORMATION CMP SCRIPT -->
+  <!-- Replace YOUR_ID with your actual Cookie Information website ID -->
+  <script id="CookieConsent" src="https://policy.app.cookieinformation.com/uc.js"
+    data-culture="EN"
+    type="text/javascript">
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700&display=swap" rel="stylesheet"/>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0e0e0e;
+      --surface: #161616;
+      --border: #2a2a2a;
+      --accent: #c8f135;
+      --accent2: #3bf0a0;
+      --text: #f0f0f0;
+      --muted: #888;
+      --danger: #ff5c5c;
+      --warn: #ffb347;
+      --success: #3bf0a0;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Syne', sans-serif;
+      min-height: 100vh;
+    }
+
+    /* HEADER */
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 1.2rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      z-index: 100;
+    }
+    .logo {
+      font-size: 13px;
+      font-family: 'DM Mono', monospace;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links a {
+      font-size: 13px;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    /* HERO */
+    .hero {
+      padding: 5rem 2rem 3rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .hero-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 1.2rem;
+    }
+    .hero h1 span { color: var(--accent); }
+    .hero p {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 560px;
+    }
+
+    /* STATUS DASHBOARD */
+    .dashboard {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 2rem;
+    }
+    .dashboard-title {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .status-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .status-card {
+      background: var(--surface);
+      padding: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .status-card .label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .status-card .value {
+      font-size: 13px;
+      font-family: 'DM Mono', monospace;
+      font-weight: 500;
+    }
+    .dot {
+      display: inline-block;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      margin-right: 6px;
+    }
+    .dot.red { background: var(--danger); }
+    .dot.green { background: var(--success); box-shadow: 0 0 6px var(--success); }
+    .dot.yellow { background: var(--warn); }
+
+    /* SECTIONS */
+    .sections {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 2rem;
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .section-block {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .section-header {
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .section-header h2 {
+      font-size: 14px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-header .tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .tag-stat { background: rgba(200,241,53,0.12); color: var(--accent); }
+    .tag-mkt  { background: rgba(255,92,92,0.12);  color: var(--danger); }
+    .tag-func { background: rgba(255,179,71,0.12); color: var(--warn); }
+    .tag-emb  { background: rgba(59,240,160,0.12); color: var(--accent2); }
+
+    .section-body { padding: 1.5rem; }
+
+    /* Analytics placeholder */
+    .analytics-placeholder {
+      background: var(--bg);
+      border: 1px dashed var(--border);
+      border-radius: 6px;
+      padding: 2rem;
+      text-align: center;
+    }
+    .analytics-placeholder p {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .bar-chart {
+      display: flex;
+      align-items: flex-end;
+      gap: 8px;
+      height: 80px;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+    .bar {
+      width: 24px;
+      border-radius: 3px 3px 0 0;
+      opacity: 0.35;
+      background: var(--accent);
+    }
+
+    /* Cookie test panel */
+    .cookie-test {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .cookie-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px;
+      background: var(--bg);
+      border-radius: 6px;
+      font-size: 13px;
+    }
+    .cookie-row .name { font-family: 'DM Mono', monospace; font-size: 12px; }
+    .cookie-row .status-badge {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      padding: 3px 10px;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+    .badge-blocked { background: rgba(255,92,92,0.15); color: var(--danger); }
+    .badge-allowed { background: rgba(59,240,160,0.15); color: var(--success); }
+    .badge-pending { background: rgba(255,179,71,0.15); color: var(--warn); }
+
+    /* Video embed */
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 6px;
+      background: var(--bg);
+    }
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+    .video-blocked {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg);
+      gap: 10px;
+    }
+    .video-blocked p {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .video-icon { font-size: 2rem; }
+
+    /* Action buttons */
+    .actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 8px 16px;
+      border-radius: 5px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .btn:hover { border-color: var(--accent); color: var(--accent); }
+    .btn-accent { border-color: var(--accent); color: var(--accent); }
+    .btn-accent:hover { background: var(--accent); color: var(--bg); }
+
+    /* Footer */
+    footer {
+      max-width: 900px;
+      margin: 3rem auto 2rem;
+      padding: 1.5rem 2rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    footer p {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+    }
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* Log panel */
+    .log-panel {
+      background: var(--bg);
+      border-radius: 6px;
+      padding: 1rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+      min-height: 80px;
+      line-height: 1.8;
+    }
+    .log-line { display: block; }
+    .log-line.ok { color: var(--success); }
+    .log-line.err { color: var(--danger); }
+    .log-line.info { color: var(--accent); }
+  </style>
+</head>
+<body>
+
+<header>
+  <span class="logo">⬡ CMP Test Site</span>
+  <nav class="nav-links">
+    <a href="#analytics">Analytics</a>
+    <a href="#marketing">Marketing</a>
+    <a href="#embed">Embed</a>
+    <a href="#cookies">Cookies</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <p class="hero-label">Cookie Information — Test Environment</p>
+    <h1>Consent <span>verification</span><br/>playground</h1>
+    <p>This page is designed to test your Cookie Information CMP. It contains analytics scripts, marketing pixels, embedded content, and cookie-setting JS — all gated behind consent categories.</p>
+  </section>
+
+  <!-- STATUS DASHBOARD -->
+  <section class="dashboard">
+    <p class="dashboard-title">// Consent status monitor</p>
+    <div class="status-grid">
+      <div class="status-card">
+        <span class="label">CMP loaded</span>
+        <span class="value" id="cmp-status"><span class="dot yellow"></span>Checking...</span>
+      </div>
+      <div class="status-card">
+        <span class="label">Statistics</span>
+        <span class="value" id="stat-status"><span class="dot yellow"></span>Pending</span>
+      </div>
+      <div class="status-card">
+        <span class="label">Marketing</span>
+        <span class="value" id="mkt-status"><span class="dot yellow"></span>Pending</span>
+      </div>
+      <div class="status-card">
+        <span class="label">Functional</span>
+        <span class="value" id="func-status"><span class="dot yellow"></span>Pending</span>
+      </div>
+      <div class="status-card">
+        <span class="label">Preference</span>
+        <span class="value" id="pref-status"><span class="dot yellow"></span>Pending</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="sections">
+
+    <!-- ANALYTICS SECTION -->
+    <div class="section-block" id="analytics">
+      <div class="section-header">
+        <h2>📊 Analytics Scripts <span class="tag tag-stat">statistics</span></h2>
+      </div>
+      <div class="section-body">
+        <div class="analytics-placeholder">
+          <div class="bar-chart">
+            <div class="bar" style="height:40%"></div>
+            <div class="bar" style="height:65%"></div>
+            <div class="bar" style="height:55%"></div>
+            <div class="bar" style="height:80%"></div>
+            <div class="bar" style="height:45%"></div>
+            <div class="bar" style="height:70%"></div>
+            <div class="bar" style="height:90%"></div>
+          </div>
+          <p id="analytics-msg">⏳ Google Analytics is waiting for statistics consent...</p>
+        </div>
+
+        <!-- Google Analytics — tagged with cookie_cat_statistic -->
+        <!-- In Cookie Information, scripts are blocked/allowed via data-category attribute -->
+        <script type="text/plain" data-category="cookie_cat_statistic">
+          // Simulated GA4 init
+          window._ga_loaded = true;
+          document.getElementById('analytics-msg').textContent = '✅ Google Analytics loaded after statistics consent granted.';
+          document.querySelectorAll('.bar').forEach(b => b.style.opacity = '1');
+          logEvent('ok', '[GA4] gtag initialized — measurement active');
+        </script>
+      </div>
+    </div>
+
+    <!-- MARKETING SECTION -->
+    <div class="section-block" id="marketing">
+      <div class="section-header">
+        <h2>📣 Marketing Pixel <span class="tag tag-mkt">marketing</span></h2>
+      </div>
+      <div class="section-body">
+        <div class="analytics-placeholder">
+          <p id="pixel-msg">🚫 Meta Pixel is blocked — awaiting marketing consent...</p>
+        </div>
+        <script type="text/plain" data-category="cookie_cat_marketing">
+          window._meta_pixel_loaded = true;
+          document.getElementById('pixel-msg').textContent = '✅ Meta Pixel fired after marketing consent granted.';
+          logEvent('ok', '[Meta Pixel] fbq initialized — PageView event sent');
+        </script>
+      </div>
+    </div>
+
+    <!-- EMBEDDED CONTENT -->
+    <div class="section-block" id="embed">
+      <div class="section-header">
+        <h2>🎬 Embedded Video <span class="tag tag-emb">functional</span></h2>
+      </div>
+      <div class="section-body">
+        <div class="video-wrapper">
+          <!-- Blocked placeholder shown before consent -->
+          <div class="video-blocked" id="video-blocked">
+            <span class="video-icon">🎬</span>
+            <p>YouTube embed blocked — requires functional consent</p>
+          </div>
+          <!-- Iframe tagged with functional category -->
+          <iframe
+            type="text/plain"
+            data-category="cookie_cat_functional"
+            data-src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+            allowfullscreen
+            id="yt-iframe"
+            style="display:none">
+          </iframe>
+        </div>
+        <script type="text/plain" data-category="cookie_cat_functional">
+          var iframe = document.getElementById('yt-iframe');
+          var blocked = document.getElementById('video-blocked');
+          if (iframe && blocked) {
+            iframe.src = iframe.getAttribute('data-src');
+            iframe.style.display = 'block';
+            blocked.style.display = 'none';
+          }
+          logEvent('ok', '[YouTube] iframe src set — functional consent granted');
+        </script>
+      </div>
+    </div>
+
+    <!-- COOKIE TEST PANEL -->
+    <div class="section-block" id="cookies">
+      <div class="section-header">
+        <h2>🍪 Cookie Write Test <span class="tag tag-func">all categories</span></h2>
+      </div>
+      <div class="section-body">
+        <div class="cookie-test">
+          <div class="cookie-row">
+            <span class="name">_ga (Google Analytics)</span>
+            <span class="status-badge badge-pending" id="badge-ga">Pending</span>
+          </div>
+          <div class="cookie-row">
+            <span class="name">_fbp (Meta Pixel)</span>
+            <span class="status-badge badge-pending" id="badge-fb">Pending</span>
+          </div>
+          <div class="cookie-row">
+            <span class="name">test_functional</span>
+            <span class="status-badge badge-pending" id="badge-func">Pending</span>
+          </div>
+          <div class="cookie-row">
+            <span class="name">CookieConsent (CMP)</span>
+            <span class="status-badge badge-pending" id="badge-cmp">Pending</span>
+          </div>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+          <p style="font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);margin-bottom:0.8rem;">// Event log</p>
+          <div class="log-panel" id="log-panel">
+            <span class="log-line info">[init] Page loaded — waiting for CMP...</span>
+          </div>
+        </div>
+
+        <div class="actions" style="margin-top: 1rem;">
+          <button class="btn btn-accent" onclick="CookieConsent.renew()">Re-open CMP banner</button>
+          <button class="btn" onclick="checkCookies()">Refresh cookie status</button>
+          <button class="btn" onclick="clearLog()">Clear log</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <p>🧪 CMP Test Site — Cookie Information</p>
+  <p>Replace the CMP script src with your actual <a href="https://cookieinformation.com" target="_blank">Cookie Information</a> embed code</p>
+</footer>
+
+<script>
+  // Logging utility
+  function logEvent(type, msg) {
+    var panel = document.getElementById('log-panel');
+    if (!panel) return;
+    var line = document.createElement('span');
+    line.className = 'log-line ' + (type || 'info');
+    var ts = new Date().toLocaleTimeString();
+    line.textContent = '[' + ts + '] ' + msg;
+    panel.appendChild(line);
+    panel.scrollTop = panel.scrollHeight;
+  }
+
+  function clearLog() {
+    var panel = document.getElementById('log-panel');
+    panel.innerHTML = '<span class="log-line info">[cleared] Log reset</span>';
+  }
+
+  // Check which cookies exist
+  function checkCookies() {
+    var cookies = document.cookie;
+    updateBadge('badge-ga',   cookies.includes('_ga')             ? 'allowed' : 'blocked', cookies.includes('_ga'));
+    updateBadge('badge-fb',   cookies.includes('_fbp')            ? 'allowed' : 'blocked', cookies.includes('_fbp'));
+    updateBadge('badge-func', cookies.includes('test_functional') ? 'allowed' : 'blocked', cookies.includes('test_functional'));
+    updateBadge('badge-cmp',  cookies.includes('CookieConsent')   ? 'allowed' : 'blocked', cookies.includes('CookieConsent'));
+    logEvent('info', '[cookies] Status refreshed');
+  }
+
+  function updateBadge(id, state, active) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.className = 'status-badge ' + (active ? 'badge-allowed' : 'badge-blocked');
+    el.textContent = active ? 'Set' : 'Blocked';
+  }
+
+  function updateConsentStatus(category, granted) {
+    var map = {
+      'cookie_cat_statistic':  'stat-status',
+      'cookie_cat_marketing':  'mkt-status',
+      'cookie_cat_functional': 'func-status',
+      'cookie_cat_preference': 'pref-status',
+    };
+    var elId = map[category];
+    if (!elId) return;
+    var el = document.getElementById(elId);
+    if (!el) return;
+    el.innerHTML = granted
+      ? '<span class="dot green"></span>Granted'
+      : '<span class="dot red"></span>Denied';
+    logEvent(granted ? 'ok' : 'err', '[consent] ' + category + ' → ' + (granted ? 'GRANTED' : 'DENIED'));
+  }
+
+  // Poll for CMP readiness
+  var cmpCheck = setInterval(function() {
+    if (typeof CookieConsent !== 'undefined') {
+      clearInterval(cmpCheck);
+      document.getElementById('cmp-status').innerHTML = '<span class="dot green"></span>Loaded';
+      logEvent('ok', '[CMP] Cookie Information script ready');
+
+      // Check initial consent state
+      var cats = ['cookie_cat_statistic','cookie_cat_marketing','cookie_cat_functional','cookie_cat_preference'];
+      cats.forEach(function(cat) {
+        var granted = CookieConsent.hasResponse && CookieConsent.hasResponse() && CookieConsent.isAccepted && CookieConsent.isAccepted(cat);
+        updateConsentStatus(cat, granted);
+      });
+      checkCookies();
+    }
+  }, 500);
+
+  // Listen for consent changes (Cookie Information fires this event)
+  window.addEventListener('CookieInformationConsentGiven', function() {
+    logEvent('info', '[event] CookieInformationConsentGiven fired');
+    var cats = ['cookie_cat_statistic','cookie_cat_marketing','cookie_cat_functional','cookie_cat_preference'];
+    cats.forEach(function(cat) {
+      var granted = CookieConsent.isAccepted && CookieConsent.isAccepted(cat);
+      updateConsentStatus(cat, granted);
+    });
+    checkCookies();
+  });
+
+  // Set a functional test cookie (normally done by a functional script)
+  document.cookie = "test_functional=1; path=/; SameSite=Lax";
+  checkCookies();
+</script>
+
+</body>
+</html>
